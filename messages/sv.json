@@ -1,8 +1,10 @@
 {
-    "Index": {
-        "title": "Anmälningssystem",
-        "current_campaign": "Kampanj",
-        "current_campaign_description": "Anmälningsystem för kampanjarbetare"
+    "SystemName": {
+        "title": "Anmälningssystem"
+    },
+    "IndexHeader": {
+        "title": "Kampanj",
+        "subtitle": "Anmälningsystem för kampanjarbetare"
     },
     "Welcome": {
         "title": "Välkommen",

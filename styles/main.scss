@@ -8,3 +8,95 @@
     border-width: 1px;
     text-align: left;
   }
+
+  .section-header {
+    position:relative;
+    color:white;
+    width: 900px;
+    height:40px;
+    background: rgb(77, 77, 77);
+    border-color:#202020;
+    border-style:solid;
+    border-width:0px;
+    margin-top:15px;
+  }
+
+  img, a {
+    border-style: none;
+    border-width: 0;
+  }
+
+  a {
+    outline: 0 none;
+  }
+
+  a:visited {
+    color: black;
+    text-decoration: underline;
+  }
+
+  .header {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    height: 170px;
+    z-index:3;
+    background-color:  rgb(66, 133, 54);
+    text-align:left;
+    position:relative;
+
+    .header-logo {
+      height: 60px;
+      text-align: right;
+      position: relative;
+      right: 20px;
+      top: 15px;
+    }
+
+    .section-header-title {
+      font-size:20px;
+      font-weight:bold;
+      padding:0px;
+      margin:0px;
+      position: absolute;
+      top: 14px;
+      left:20px;
+      text-transform:uppercase;
+
+      a, a:visited {
+        color: white;
+        text-decoration: none;
+        font-weight: normal;
+      }
+    }
+
+
+    .header-title {
+      color: white;
+      font-weight:bold;
+      font-size:54px;
+      padding:0px;
+      margin:0px;
+      margin-bottom:10px;
+      position:relative;
+      left:20px;
+      top:10px;
+      text-transform:uppercase;
+    }
+
+    .header-subtitle {
+      color: white;
+      font-weight:normal;
+      font-size:24px;
+      padding:0px;
+      margin:0px;
+      margin-bottom:10px;
+      position:relative;
+      left:20px;
+      top:0px;
+      text-transform:uppercase;
+      
+      a {
+        color: white;
+      }
+    }
+  }
