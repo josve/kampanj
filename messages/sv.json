@@ -1,0 +1,16 @@
+{
+    "Index": {
+        "title": "Anmälningssystem",
+        "current_campaign": "Kampanj",
+        "current_campaign_description": "Anmälningsystem för kampanjarbetare"
+    },
+    "Welcome": {
+        "title": "Välkommen",
+        "description_title": "Välkommen till anmälningssystemet",
+        "description_text": "Här kan du anmäla dig som kampanjarbetare för att hjälpa till. Du kan se vilka aktiviteter som är planerade och anmäla dig till dessa."
+    },
+    "Current": {
+        "title": "Aktuella aktiviteter",
+        "description_text": "Klicka på en aktivitet i listan för att läsa mera eller anmäla dig."
+    }
+}
