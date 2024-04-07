@@ -14,5 +14,8 @@
     "Current": {
         "title": "Aktuella aktiviteter",
         "description_text": "Klicka på en aktivitet i listan för att läsa mera eller anmäla dig."
+    },
+    "EventDescription": {
+        "title": "Beskrivning"
     }
 }

@@ -12,7 +12,7 @@ const Section: FunctionComponent<SectionProps> = ({ translations, imagePath, chi
   return (
     <>
     <div className="section-header">
-    <img src="section_header_corner.png" 
+    <img src="/section_header_corner.png" 
          className="section-header-corner">
     </img>
       <div className="section-header-title">
