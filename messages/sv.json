@@ -17,5 +17,12 @@
     },
     "EventDescription": {
         "title": "Beskrivning"
+    },
+    "EventOccations": {
+        "title": "Tider/Pass",
+        "description_text": "Klicka på ett pass för att anmäla eller avanmäla dig. Platser markerade med ! är extra viktigt att de fylls."
+    },
+    "Instructions": {
+        "title": "Instruktioner"
     }
 }
