@@ -10,7 +10,9 @@ const WelcomeSection: FunctionComponent = async ({ locale }) => {
   return (
     <Section translations={w} imagePath="/images/icon_registration_white.png" >
     <div className="welcome-content">
-      <img className="welcome-image" src="/images/cover-image.jpg" />
+      <div className="welcome-image">
+      <img src="/images/cover-image.jpg" />
+      </div>
       <div className="welcome-text">
         <h2>{w['description_title']}</h2>
         <p>

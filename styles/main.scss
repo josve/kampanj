@@ -1,4 +1,13 @@
-  .main-container {
+
+.admin-header { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 10px;
+  background-color: #E85429;
+}
+
+.main-container {
     margin: 30px;
     position: relative;
     background: #FFFFFF;
@@ -25,7 +34,6 @@
     color: black;
 
     .shift-box {
-      width: 400px;
       margin-bottom: 20px;
       position: relative;
       background: #ffffff;
@@ -70,14 +78,17 @@
         left: 0px;
         top: -4px;
         text-transform: uppercase;
-        background: rgb(246, 228, 0)
+        background: rgb(246, 228, 0);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
 
   .content {
     position: relative;
-    width: 900;
+    max-width: 900px;
     z-index: 3;
     background: #FFFFFF;
     font-family: sans-serif;
@@ -96,24 +107,27 @@
   }
 
   .welcome-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem; // Adjust this for the padding between the image and the text
-  }
-  
-  .welcome-image {
-    flex: 1 1 50%;
-    max-width: 400px;
-  }
-  
-  .welcome-text {
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem; 
 
-    h2 {
-      margin-top: 0;
+    .welcome-image img {
+      max-width: 100%;;
     }
-  }
 
+    .welcome-text {
+      h2 {
+
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+   }
+  
+ 
   .section-header {
     position:relative;
     color:white;
@@ -144,7 +158,11 @@
     position: relative;
     left: 20px;
     top: 5px;
+    width: calc(100% - 20px);
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     }
   }
 
@@ -188,6 +206,9 @@
       top: 14px;
       left:20px;
       text-transform:uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       a, a:visited {
         color: white;

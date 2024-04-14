@@ -7,7 +7,6 @@ if (
   !!process.env.DUMMY_LOGIN_USERNAME &&
   !!process.env.DUMMY_LOGIN_PASSWORD
 ) {
-  console.log('Added dumy login');
   providers.push(
     CredentialsProvider({
       name: 'Username & Password',

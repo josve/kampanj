@@ -10,6 +10,10 @@ export default function LocaleLayout({
   }) {
     return (
       <html lang={locale}>
+        <head>
+          <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+        </head>
+        
         <body>
           <AntdRegistry>
             <center>

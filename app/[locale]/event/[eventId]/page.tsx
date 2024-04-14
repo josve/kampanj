@@ -7,6 +7,8 @@ import Header from '@/components/Header';
 import Section from '@/components/Section';
 import ReactMarkdown from 'react-markdown';
 import { getDictionary } from '@/app/languages';
+import { authOptions } from '@/utils/authConfig';
+import { getServerSession } from 'next-auth';
 
 export default async function Page({ params: { eventId, locale } }) {
   const db = await connectToDatabase();
@@ -25,6 +27,8 @@ export default async function Page({ params: { eventId, locale } }) {
 
   const eventOccations = dictionary['EventOccations'];
   const instructions = dictionary['Instructions'];
+
+  const session = await getServerSession(authOptions);
 
   return (
     <>
