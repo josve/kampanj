@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react';
-import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import connectToDatabase from '../../../../db';
 import EventWidget from '@/components/EventWidget';
@@ -7,47 +6,47 @@ import { ObjectId } from 'mongodb';
 import Header from '@/components/Header';
 import Section from '@/components/Section';
 import ReactMarkdown from 'react-markdown';
+import { getDictionary } from '@/app/languages';
 
-export default async function Page({ params: { eventId } }) {
+export default async function Page({ params: { eventId, locale } }) {
   const db = await connectToDatabase();
   const event = await db
     .collection('events')
     .findOne({ _id: new ObjectId(eventId) });
 
-  const getEventData = (key: string) => {
-    if (key === 'title') {
-      return event.name;
-    } else if (key === 'subtitle') {
-      return `${event.location}, ${event.date}`;
-    }
+  const getEventData = {
+    title: event.name,
+    subtitle: `${event.location}, ${event.date}`,
   };
 
-  const eventDescription = await getTranslations('EventDescription');
+  const dictionary = await getDictionary(locale);
 
-  const eventOccations = await getTranslations('EventOccations');
-  const instructions = await getTranslations('Instructions');
+  const eventDescription = dictionary['EventDescription'];
+
+  const eventOccations = dictionary['EventOccations'];
+  const instructions = dictionary['Instructions'];
 
   return (
     <>
       {event && (
         <>
-          <Header translations={getEventData}></Header>
+          <Header translations={getEventData} locale={locale}></Header>
           <Section
-            imagePath="/icon_event_white.png"
+            imagePath="/images/icon_event_white.png"
             translations={eventDescription}
           >
             <ReactMarkdown>{event.description}</ReactMarkdown>
           </Section>
           <Section
-            imagePath="/icon_registration_white.png"
+            imagePath="/images/icon_registration_white.png"
             translations={eventOccations}
           >
             <span className="help-text">
-              {eventOccations('description_text')}
+              {eventOccations['description_text']}
             </span>
           </Section>
           <Section
-            imagePath="/icon_instruction_white.png"
+            imagePath="/images/icon_instruction_white.png"
             translations={instructions}
           >
             <ReactMarkdown>{event.instructions}</ReactMarkdown>

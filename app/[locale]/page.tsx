@@ -1,17 +1,20 @@
-import {useTranslations} from 'next-intl';
 import Header from '../../components/Header'; 
 import Section from '../../components/Section';
 import WelcomeSection from '../../components/WelcomeSection';
 import CurrentSection from '../../components/CurrentSection';
+import { getDictionary } from '@/app/languages';
 
-export default function Index({ params: { locale }}) {
-  const t = useTranslations('IndexHeader');
-  const w = useTranslations('Welcome');
+export default async function Index({ params: { locale }}) {
+  const dictionary = await getDictionary(locale);
+
+  const t = dictionary['IndexHeader'];
+  const w = dictionary['Welcome'];
+
   return (<>
-            <Header translations={t}>
+            <Header translations={t} locale={locale}>
             </Header>
             <div className="content">
-                <WelcomeSection />
+                <WelcomeSection locale={locale} />
                 <CurrentSection locale={locale} />
             </div>
          </>);

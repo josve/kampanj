@@ -1,4 +1,3 @@
-import {useTranslations} from 'next-intl';
 import { authOptions } from '@/utils/authConfig';
 import { getServerSession } from 'next-auth';
 import { NextResponse } from 'next/server';

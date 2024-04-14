@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react';
-import {useTranslations} from 'next-intl';
 import Link from 'next/link';
 
 interface SectionProps {
@@ -12,14 +11,14 @@ const Section: FunctionComponent<SectionProps> = ({ translations, imagePath, chi
   return (
     <>
     <div className="section-header">
-    <img src="/section_header_corner.png" 
+    <img src="/images/section_header_corner.png" 
          className="section-header-corner">
     </img>
       <div className="section-header-title">
       <img src={imagePath}
       className="section-header-icon">
         </img>
-         {translations('title')}
+         {translations['title']}
        </div>
     </div>
     <div className="padding">
