@@ -1,4 +1,5 @@
 import "../styles/main.scss";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 export default function LocaleLayout({
     children,
@@ -10,11 +11,13 @@ export default function LocaleLayout({
     return (
       <html lang={locale}>
         <body>
+          <AntdRegistry>
             <center>
                 <div className="main-container">
                     {children}
                 </div>
             </center>
+          </AntdRegistry>
         </body>
       </html>
     );
