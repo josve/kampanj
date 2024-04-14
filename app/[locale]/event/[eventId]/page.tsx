@@ -5,10 +5,14 @@ import EventWidget from '@/components/EventWidget';
 import { ObjectId } from 'mongodb';
 import Header from '@/components/Header';
 import Section from '@/components/Section';
+import SectionHeader from '@/components/SectionHeader';
+import SectionContent from '@/components/SectionContent';
 import ReactMarkdown from 'react-markdown';
 import { getDictionary } from '@/app/languages';
 import { authOptions } from '@/utils/authConfig';
 import { getServerSession } from 'next-auth';
+import EditMarkdown from '@/components/EditMarkdown';
+import { updateDescription } from '@/app/actions';
 
 export default async function Page({ params: { eventId, locale } }) {
   const db = await connectToDatabase();
@@ -35,12 +39,21 @@ export default async function Page({ params: { eventId, locale } }) {
       {event && (
         <>
           <Header translations={getEventData} locale={locale}></Header>
-          <Section
+          <SectionHeader
             imagePath="/images/icon_event_white.png"
             translations={eventDescription}
           >
+            {session && (
+              <EditMarkdown
+                content={event.description}
+                id={event._id.toString()}
+                action={updateDescription}
+              ></EditMarkdown>
+            )}
+          </SectionHeader>
+          <SectionContent>
             <ReactMarkdown>{event.description}</ReactMarkdown>
-          </Section>
+          </SectionContent>
           <Section
             imagePath="/images/icon_registration_white.png"
             translations={eventOccations}
