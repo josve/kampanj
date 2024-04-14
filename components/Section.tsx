@@ -1,5 +1,7 @@
 import { FunctionComponent } from 'react';
 import Link from 'next/link';
+import SectionHeader from './SectionHeader';
+import SectionContent from './SectionContent';
 
 interface SectionProps {
   translations: (key: string) => string;
@@ -7,24 +9,20 @@ interface SectionProps {
   children: React.ReactNode;
 }
 
-const Section: FunctionComponent<SectionProps> = ({ translations, imagePath, children }) => {
+const Section: FunctionComponent<SectionProps> = ({
+  translations,
+  imagePath,
+  children,
+}) => {
   return (
     <>
-    <div className="section-header">
-    <img src="/images/section_header_corner.png" 
-         className="section-header-corner">
-    </img>
-      <div className="section-header-title">
-      <img src={imagePath}
-      className="section-header-icon">
-        </img>
-         {translations['title']}
-       </div>
-    </div>
-    <div className="padding">
-        {children}
-    </div>
-    </>);
+      <SectionHeader
+        translations={translations}
+        imagePath={imagePath}
+      ></SectionHeader>
+      <SectionContent>{children}</SectionContent>
+    </>
+  );
 };
 
 export default Section;
