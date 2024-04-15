@@ -6,7 +6,7 @@ interface Args {
   locale: string;
 }
 
-const WelcomeSection: FunctionComponent = async ({ locale }: Args) => {
+const WelcomeSection: FunctionComponent<Args> = async ({ locale }) => {
   const dictionary = await getDictionary(locale);
 
   const w = dictionary['Welcome'];
