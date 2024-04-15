@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import Link from 'next/link';
 
 interface SectionProps {
-  translations: (key: string) => string;
+  translations: Record<string, string>;
   imagePath: string;
   children: React.ReactNode;
 }

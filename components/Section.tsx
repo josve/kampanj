@@ -4,7 +4,7 @@ import SectionHeader from './SectionHeader';
 import SectionContent from './SectionContent';
 
 interface SectionProps {
-  translations: (key: string) => string;
+  translations: Record<string, string>;
   imagePath: string;
   children: React.ReactNode;
 }
