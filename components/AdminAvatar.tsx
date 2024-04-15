@@ -1,6 +1,7 @@
 'use client';
 
 import { Avatar, Dropdown, Menu, Typography, Space } from 'antd';
+import { ReactNode } from 'react';
 
 interface AdminAvatarProps {
   username: string;
