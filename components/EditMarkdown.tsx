@@ -54,7 +54,6 @@ const AdminAvatar = ({ content, id, action }: AdminAvatarProps) => {
       <Modal
         title="Edit"
         width="80%"
-        height="50vw"
         open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
