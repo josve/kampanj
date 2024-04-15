@@ -7,7 +7,7 @@ interface AdminAvatarProps {
 }
 
 const AdminAvatar = ({ username }: AdminAvatarProps) => {
-  const menu = (
+  const menu: MenuProps = (
     <Menu>
       <Menu.Item key="0">
         <a href="/api/auth/signout">Logout</a>
