@@ -22,7 +22,7 @@ const Header: FunctionComponent<HeaderProps> = async ({
 
   return (
     <>
-      {session && <AdminAvatar username={session.user.name} />}
+      {session?.user && <AdminAvatar username={session.user.name} />}
       <div className="header">
         <div className="header-logo">
           <img src="/images/logo.svg" width="207px" />
