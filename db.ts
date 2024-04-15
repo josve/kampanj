@@ -5,7 +5,7 @@ let db;
 export default async function connectToDatabase() {
   if (db) return db;
 
-  const client = await MongoClient.connect(process.env.MONGODB_URI, {});
+  const client = await MongoClient.connect(process.env.MONGODB_URI!, {});
 
   await client.connect();
 

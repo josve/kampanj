@@ -1,6 +1,6 @@
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
-const providers = [];
+const providers: any = [];
 
 if (
   !!process.env.DUMMY_LOGIN_ENABLED &&
@@ -14,7 +14,7 @@ if (
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials: any, req: any): Promise<any> {
         if (
           credentials &&
           credentials.username === process.env.DUMMY_LOGIN_USERNAME &&
