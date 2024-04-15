@@ -25,7 +25,7 @@ const Header: FunctionComponent<HeaderProps> = async ({
       {session?.user && <AdminAvatar username={session.user.name!} />}
       <div className="header">
         <div className="header-logo">
-          <img src="/images/logo.svg" width="207px" />
+          <img src="process.env.PUBLIC_LOGO" width="207px" />
         </div>
         <div className="section-header-title">
           <Link href="/">{ht['title']}</Link>
