@@ -4,7 +4,7 @@ import { getServerSession } from 'next-auth';
 import connectToDatabase from '../db';
 import { ObjectId } from 'mongodb';
 
-export async function updateDescription(markdown, id) {
+export async function updateDescription(markdown: string, id: string) {
   const session = await getServerSession(authOptions);
 
   if (!session) {
