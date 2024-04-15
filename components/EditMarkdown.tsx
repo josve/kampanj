@@ -17,7 +17,7 @@ interface AdminAvatarProps {
   action: any;
 }
 
-const AdminAvatar = ({ content, id, action }) => {
+const AdminAvatar = ({ content, id, action }: AdminAvatarProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [markdown, setMarkdown] = useState(content);
 

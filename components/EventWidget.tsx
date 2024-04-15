@@ -1,6 +1,16 @@
 import Link from 'next/link';
 
-const EventWidget = ({ event, locale }) => (
+interface Args {
+  event: {
+    _id: string;
+    name: string;
+    date: string;
+    location: string;
+  };
+  locale: string;
+}
+
+const EventWidget = ({ event, locale }: Args) => (
   <Link href={`/${locale}/event/${event._id}`} className="event-widget">
     <div
       className="shift-box"
