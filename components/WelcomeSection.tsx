@@ -15,7 +15,7 @@ const WelcomeSection: FunctionComponent<Args> = async ({ locale }) => {
     <Section translations={w} imagePath="/images/icon_registration_white.png">
       <div className="welcome-content">
         <div className="welcome-image">
-          <img src="/images/cover-image.jpg" />
+          <img src={process.env.PUBLIC_COVER_IMAGE} />
         </div>
         <div className="welcome-text">
           <h2>{w['description_title']}</h2>
