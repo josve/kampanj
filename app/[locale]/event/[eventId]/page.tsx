@@ -14,7 +14,14 @@ import { getServerSession } from 'next-auth';
 import EditMarkdown from '@/components/EditMarkdown';
 import { updateDescription } from '@/app/actions';
 
-export default async function Page({ params: { eventId, locale } }) {
+interface PageProps {
+  params: {
+    eventId: string;
+    locale: string;
+  };
+}
+
+export default async function Page({ params: { eventId, locale } }: PageProps) {
   const db = await connectToDatabase();
   const event = await db
     .collection('events')

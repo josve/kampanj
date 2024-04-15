@@ -4,7 +4,13 @@ import WelcomeSection from '../../components/WelcomeSection';
 import CurrentSection from '../../components/CurrentSection';
 import { getDictionary } from '@/app/languages';
 
-export default async function Index({ params: { locale }}) {
+interface PageProps {
+  params: {
+    locale: string;
+  };
+}
+*
+export default async function Index({ params: { locale }}: PageProps) {
   const dictionary = await getDictionary(locale);
 
   const t = dictionary['IndexHeader'];
