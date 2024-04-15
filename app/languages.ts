@@ -7,4 +7,5 @@ const dictionaries = {
 
 export const getDictionary = async (
   locale: string,
-): Promise<Record<string, string>> => dictionaries[locale]();
+): Promise<(category: string) => Record<string, string>> =>
+  dictionaries[locale]();
