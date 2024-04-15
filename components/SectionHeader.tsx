@@ -4,7 +4,7 @@ import Link from 'next/link';
 interface SectionProps {
   translations: Record<string, string>;
   imagePath: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const SectionHeader: FunctionComponent<SectionProps> = ({
