@@ -40,6 +40,14 @@ if (process.env.GOOGLE_ID && process.env.GOOGLE_SECRET) {
 
 const authOptions = {
   providers: providers,
+  callbacks: {
+    async signIn({ account, profile }: any) {
+      if (account.provider === "google") {
+        return profile.email_verified && profile.email.endsWith(process.env.ALLOWED_DOMAIN);
+      }
+      return false;
+    }
+  }
 };
 
 export { authOptions };
