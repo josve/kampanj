@@ -5,7 +5,7 @@ import { useState, useRef } from 'react';
 import type { ForwardedRef } from 'react';
 import dynamic from 'next/dynamic';
 
-const MarkdownEditor = dynamic(() => import('./MarkdownEditor'), {
+const MarkdownEditor: any = dynamic(() => import('./MarkdownEditor'), {
   ssr: false,
 });
 
