@@ -5,4 +5,6 @@ const dictionaries = {
   en: () => import('../messages/en.json').then((module) => module.default),
 };
 
-export const getDictionary = async (locale) => dictionaries[locale]();
+export const getDictionary = async (
+  locale: string,
+): Promise<Record<string, string>> => dictionaries[locale]();
