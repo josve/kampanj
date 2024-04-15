@@ -1,13 +1,13 @@
 'use client';
 
-import { Avatar, Dropdown, Menu, Typography, Space } from 'antd';
+import { Avatar, Dropdown, Menu, Typography, Space, MenuProps } from 'antd';
 
 interface AdminAvatarProps {
   username: string;
 }
 
 const AdminAvatar = ({ username }: AdminAvatarProps) => {
-  const menu: Menu.MenuProps = (
+  const menu: MenuProps = (
     <Menu>
       <Menu.Item key="0">
         <a href="/api/auth/signout">Logout</a>
