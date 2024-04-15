@@ -1,13 +1,13 @@
 'use client';
 
-import { Avatar, Dropdown, Menu, Typography, Space, MenuProps } from 'antd';
+import { Avatar, Dropdown, Menu, Typography, Space } from 'antd';
 
 interface AdminAvatarProps {
   username: string;
 }
 
 const AdminAvatar = ({ username }: AdminAvatarProps) => {
-  const menu: MenuProps = (
+  const menu: ReactNode = (
     <Menu>
       <Menu.Item key="0">
         <a href="/api/auth/signout">Logout</a>
@@ -20,7 +20,7 @@ const AdminAvatar = ({ username }: AdminAvatarProps) => {
       <Typography.Text style={{ marginRight: 'auto' }}>
         ADMINISTRATOR
       </Typography.Text>
-      <Dropdown menu={menu} trigger={['click']}>
+      <Dropdown overlay={menu} trigger={['click']}>
         <Avatar
           style={{
             cursor: 'pointer',
