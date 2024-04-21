@@ -151,10 +151,31 @@ h4 {
 }
 
 .draft-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  width: 100px;
+  height: 30px;
+  background-color: #ffb9a6;
+  color: black;
+  font-size: 14px;
+  transform: rotate(45deg);
+  transform-origin: right top;
+  z-index: 1;
+  font-family: var(--header-font-family);
+  text-transform: uppercase;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.draft-label2 {
   position: absolute;
   top: 20px;
   right: 0px;
-  background-color: red;
+  background-color: #e85429;
   color: white;
   padding: 5px 10px;
   font-size: 14px;
