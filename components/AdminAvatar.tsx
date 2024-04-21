@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Dropdown, Menu, Typography, Space } from 'antd';
+import { Avatar, Dropdown, Menu, Typography, Space, Button } from 'antd';
 import { ReactNode } from 'react';
 
 interface AdminAvatarProps {
@@ -18,21 +18,23 @@ const AdminAvatar = ({ username }: AdminAvatarProps) => {
 
   return (
     <div className="admin-header">
-      <Typography.Text style={{ marginRight: 'auto' }}>
-        ADMINISTRATOR
-      </Typography.Text>
-      <Dropdown overlay={menu} trigger={['click']}>
-        <Avatar
-          style={{
-            cursor: 'pointer',
-            backgroundColor: '#F6E400',
-            color: 'black',
-          }}
-          size="large"
+      <div className="section-header-title">
+        <img
+          src="/images/icon_instruction_white.png"
+          className="section-header-icon"
+        />
+        <span className="section-header-title-text">Administrera</span>
+      </div>
+      <Typography.Text style={{ marginLeft: 'auto' }}>
+        Inloggad som <b>{username}</b>
+        <Button
+          style={{ marginLeft: '10px' }}
+          size="medium"
+          href="/api/auth/signout"
         >
-          {username}
-        </Avatar>
-      </Dropdown>
+          Logga ut
+        </Button>
+      </Typography.Text>
     </div>
   );
 };

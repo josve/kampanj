@@ -22,7 +22,6 @@ const Header: FunctionComponent<HeaderProps> = async ({
 
   return (
     <>
-      {session?.user && <AdminAvatar username={session.user.name!} />}
       <div className="header">
         <div className="header-logo">
           <img src={process.env.PUBLIC_LOGO} width="207px" />
@@ -33,6 +32,7 @@ const Header: FunctionComponent<HeaderProps> = async ({
         <div className="header-title">{translations['title']}</div>
         <div className="header-subtitle">{translations['subtitle']}</div>
       </div>
+      {session?.user && <AdminAvatar username={session.user.name!} />}
     </>
   );
 };

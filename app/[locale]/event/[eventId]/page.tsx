@@ -12,7 +12,7 @@ import { getDictionary } from '@/app/languages';
 import { authOptions } from '@/utils/authConfig';
 import { getServerSession } from 'next-auth';
 import EditMarkdown from '@/components/EditMarkdown';
-import { updateDescription } from '@/app/actions';
+import { updateDescription, updateInstruction } from '@/app/actions';
 
 interface PageProps {
   params: {
@@ -69,12 +69,22 @@ export default async function Page({ params: { eventId, locale } }: PageProps) {
               {eventOccations['description_text']}
             </span>
           </Section>
-          <Section
+
+          <SectionHeader
             imagePath="/images/icon_instruction_white.png"
             translations={instructions}
           >
-            <ReactMarkdown>{event.instructions}</ReactMarkdown>
-          </Section>
+            {session && (
+              <EditMarkdown
+                content={event.instruction}
+                id={event._id.toString()}
+                action={updateInstruction}
+              ></EditMarkdown>
+            )}
+          </SectionHeader>
+          <SectionContent>
+            <ReactMarkdown>{event.instruction}</ReactMarkdown>
+          </SectionContent>
         </>
       )}
     </>
