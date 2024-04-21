@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { updateEvent } from '@/app/actions';
-import { Input, Switch, Button } from 'antd';
+import { Form, Input, Switch, Button, Row, Col } from 'antd';
 
 interface Args {
   locale: string;
@@ -11,7 +11,7 @@ interface Args {
   event: any;
 }
 
-const EditDialog: FunctionComponent<Args> = async ({
+const EditDialog: FunctionComponent<Args> = ({
   locale,
   translations,
   event,
@@ -37,26 +37,54 @@ const EditDialog: FunctionComponent<Args> = async ({
   // Call server function updateEvent which takes the event _id and the new name, location and published values. Call the function when the submit button is clicked.
   const callServerEvent = () => {
     updateEvent(event._id, name, location, published);
+    window.location.reload();
   };
 
   return (
     <>
       <div className="edit-event">
-        <Input
-          placeholder={translations['name']}
-          value={event.name}
-          onChange={(e) => updateName(e.target.value)}
-        />
-        <Input
-          placeholder={translations['location']}
-          value={event.location}
-          onChange={(e) => updateLocation(e.target.value)}
-        />
-        <Switch
-          checked={event.published}
-          onChange={(checked) => updatePublished(checked)}
-        />
-        <Button onClick={callServerEvent}>{translations['save']}</Button>
+        <Form layout="vertical" className="edit-event">
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item label={translations['name']} required>
+                <Input
+                  placeholder={translations['name']}
+                  value={name}
+                  onChange={(e) => updateName(e.target.value)}
+                />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item label={translations['location']} required>
+                <Input
+                  placeholder={translations['location']}
+                  value={location}
+                  onChange={(e) => updateLocation(e.target.value)}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12}>
+              <Form.Item
+                label={translations['published']}
+                valuePropName="checked"
+              >
+                <Switch
+                  checked={published}
+                  onChange={(checked) => updatePublished(checked)}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24} style={{ textAlign: 'right' }}>
+              <Button type="primary" onClick={callServerEvent}>
+                {translations['save']}
+              </Button>
+            </Col>
+          </Row>
+        </Form>
       </div>
     </>
   );

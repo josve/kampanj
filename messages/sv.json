@@ -29,6 +29,7 @@
         "title": "Inställningar",
         "name": "Namn",
         "location": "Plats",
-        "save": "Spara"
+        "save": "Spara",
+        "published": "Publicerad"
     }
 }
