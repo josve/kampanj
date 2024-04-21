@@ -150,6 +150,23 @@ h4 {
   }
 }
 
+.draft-label {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  transform: rotate(45deg);
+  z-index: 1;
+  max-width: 42px;
+  font-family: var(--header-font-family);
+  text-transform: uppercase;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
 .admin-header,
 .section-header {
   .section-header-icon {
@@ -216,7 +233,7 @@ a:visited {
 .header {
   font-family: var(--header-font-family);
   color: white;
-  height: 170px;
+  height: 180px;
   z-index: 3;
   background-color: rgb(66, 133, 54);
   text-align: left;
@@ -257,6 +274,7 @@ a:visited {
     font-size: 54px;
     padding: 0px;
     margin: 0px;
+    padding-top: 20px;
     margin-bottom: 10px;
     position: relative;
     left: 20px;
