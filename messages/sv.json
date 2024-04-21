@@ -24,5 +24,11 @@
     },
     "Instructions": {
         "title": "Instruktioner"
+    },
+    "EditEvent": {
+        "title": "Inställningar",
+        "name": "Namn",
+        "location": "Plats",
+        "save": "Spara"
     }
 }

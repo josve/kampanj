@@ -21,7 +21,9 @@ const SectionHeader: FunctionComponent<SectionProps> = ({
         ></img>
         <div className="section-header-title">
           <img src={imagePath} className="section-header-icon"></img>
-          {translations['title']}
+          <span className="section-header-title-text">
+            {translations['title']}
+          </span>
           {children}
         </div>
       </div>

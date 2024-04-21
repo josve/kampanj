@@ -13,6 +13,7 @@ import { authOptions } from '@/utils/authConfig';
 import { getServerSession } from 'next-auth';
 import EditMarkdown from '@/components/EditMarkdown';
 import { updateDescription, updateInstruction } from '@/app/actions';
+import EditSection from '@/components/EditSection';
 
 interface PageProps {
   params: {
@@ -46,6 +47,7 @@ export default async function Page({ params: { eventId, locale } }: PageProps) {
       {event && (
         <>
           <Header translations={getEventData} locale={locale}></Header>
+          {session && <EditSection locale={locale} event={event} />}
           <SectionHeader
             imagePath="/images/icon_event_white.png"
             translations={eventDescription}

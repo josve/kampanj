@@ -53,3 +53,40 @@ export async function updateInstruction(markdown: string, id: string) {
     return;
   }
 }
+
+// Update name, location and published properties
+export async function updateEvent(
+  id: string,
+  name: string,
+  location: string,
+  published: boolean,
+) {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return;
+  }
+
+  const db = await connectToDatabase();
+  const collection = db.collection('events');
+
+  try {
+    // Find the document by id and update the properties
+    const result = await collection.findOneAndUpdate(
+      { _id: new ObjectId(id) },
+      {
+        $set: {
+          name: name,
+          location: location,
+          published: published,
+        },
+      },
+      { returnOriginal: false },
+    );
+
+    return;
+  } catch (error) {
+    console.error('Failed to update event', error);
+    return;
+  }
+}
