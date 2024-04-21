@@ -1,9 +1,14 @@
 .admin-header {
+  font-family: var(--header-font-family);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   background-color: #e85429;
+}
+
+body {
+  font-family: var(--content-font-family);
 }
 
 .main-container {
@@ -66,6 +71,7 @@
     }
 
     .event-list-title {
+      font-family: var(--header-font-family);
       font-size: 26px;
       font-weight: bold;
       padding: 12px;
@@ -91,7 +97,7 @@
   max-width: 900px;
   z-index: 3;
   background: #ffffff;
-  font-family: sans-serif;
+  font-family: var(--content-font-family);
   color: #292929;
   font-size: 15px;
   line-height: 18px;
@@ -127,6 +133,7 @@
 }
 
 .section-header {
+  font-family: var(--header-font-family);
   position: relative;
   color: white;
   height: 40px;
@@ -183,7 +190,7 @@ a:visited {
 }
 
 .header {
-  font-family: 'Arial', sans-serif;
+  font-family: var(--header-font-family);
   color: white;
   height: 170px;
   z-index: 3;
