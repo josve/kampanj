@@ -19,7 +19,7 @@ interface AdminAvatarProps {
 
 const AdminAvatar = ({ content, id, action }: AdminAvatarProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [markdown, setMarkdown] = useState(content);
+  const [markdown, setMarkdown] = useState(content || '');
 
   const showModal = () => {
     setIsModalVisible(true);

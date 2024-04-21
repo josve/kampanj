@@ -7,10 +7,15 @@ import {
   listsPlugin,
   thematicBreakPlugin,
   toolbarPlugin,
+  quotePlugin,
   UndoRedo,
+  linkDialogPlugin,
+  linkPlugin,
+  ListsToggle,
   BoldItalicUnderlineToggles,
   BlockTypeSelect,
   InsertThematicBreak,
+  CreateLink,
 } from '@mdxeditor/editor';
 import { FC } from 'react';
 
@@ -20,10 +25,6 @@ interface EditorProps {
   editorRef?: React.MutableRefObject<MDXEditorMethods | null>;
 }
 
-/**
- * Extend this Component further with the necessary plugins or props you need.
- * proxying the ref is necessary. Next.js dynamically imported components don't support refs.
- */
 const MarkdownEditor: FC<EditorProps> = ({ markdown, editorRef, onChange }) => {
   return (
     <MDXEditor
@@ -32,16 +33,20 @@ const MarkdownEditor: FC<EditorProps> = ({ markdown, editorRef, onChange }) => {
       markdown={markdown}
       plugins={[
         headingsPlugin(),
+        linkPlugin(),
         listsPlugin(),
+        linkDialogPlugin(),
+        quotePlugin(),
         thematicBreakPlugin(),
         toolbarPlugin({
           toolbarContents: () => (
             <>
-              {' '}
-              <UndoRedo />
               <BoldItalicUnderlineToggles />
               <BlockTypeSelect />
+              <ListsToggle />
               <InsertThematicBreak />
+              <CreateLink />
+              <UndoRedo />
             </>
           ),
         }),

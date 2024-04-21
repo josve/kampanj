@@ -11,6 +11,18 @@ body {
   font-family: var(--content-font-family);
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--header-font-family);
+  text-transform: uppercase;
+}
+
+.mdxeditor-popup-container {
+  z-index: 90000 !important;
+}
+
 .main-container {
   margin: 30px;
   position: relative;
