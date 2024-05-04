@@ -1,5 +1,8 @@
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
+
+import connectToDatabase from '../db';
+
 const providers: any = [];
 
 if (
@@ -41,13 +44,33 @@ if (process.env.GOOGLE_ID && process.env.GOOGLE_SECRET) {
 const authOptions = {
   providers: providers,
   callbacks: {
-    async signIn({ account, profile }: any) {
-      if (account.provider === "google") {
-        return profile.email_verified && profile.email.endsWith(process.env.ALLOWED_DOMAIN);
+    async signIn({ account, profile, user }: any) {
+      const db = await connectToDatabase();
+
+      console.log('signIn');
+      console.log(JSON.stringify(account));
+      console.log(JSON.stringify(profile));
+      console.log(JSON.stringify(user));
+
+      let email = user?.email;
+
+      if (account.provider === 'google' && !profile.email_verified) {
+        if (!profile.email_verified) {
+          return false;
+        }
+
+        email = profile.email;
       }
-      return false;
-    }
-  }
+
+      if (!email) {
+        return false;
+      }
+
+      const admin = await db.collection('admins').findOne({ email: email });
+
+      return !!admin;
+    },
+  },
 };
 
 export { authOptions };

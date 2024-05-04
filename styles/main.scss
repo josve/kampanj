@@ -1,5 +1,13 @@
+$layout-breakpoint-small: 580px;
+
 body {
   font-family: var(--content-font-family);
+}
+
+.login-button {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
 
 h1,
@@ -317,6 +325,56 @@ a:visited {
 
     a {
       color: white;
+    }
+  }
+}
+
+.header {
+  .header-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 5px;
+  }
+}
+
+@media (max-width: $layout-breakpoint-small) {
+  .main-container,
+  body {
+    margin: 0;
+    width: 100vw;
+  }
+
+  .login-button {
+    display: none;
+  }
+
+  .content {
+    margin-left: 20px;
+  }
+
+  .section-header {
+    margin-left: 20px;
+  }
+
+  .padding {
+    margin: 20px;
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .header {
+    .header-title {
+      font-size: 48px;
+    }
+    .header-logo {
+      img {
+        height: 40px;
+      }
+    }
+
+    .header-subtitle {
+      font-size: 16px;
     }
   }
 }
