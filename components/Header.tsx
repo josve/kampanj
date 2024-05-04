@@ -27,7 +27,7 @@ const Header: FunctionComponent<HeaderProps> = async ({
           <img src={process.env.PUBLIC_LOGO} width="207px" />
         </div>
         <div className="section-header-title">
-          <Link href="/">{ht['title']}</Link>
+          <Link href="/">{process.env.SYSTEM_NAME}</Link>
         </div>
         <div className="header-title">{translations['title']}</div>
         <div className="header-subtitle">{translations['subtitle']}</div>
