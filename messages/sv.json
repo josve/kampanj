@@ -30,6 +30,9 @@
         "title": "Inställningar",
         "name": "Namn",
         "location": "Plats",
+        "date": "Datum",
+        "start_time": "Starttid",
+        "end_time": "Sluttid",
         "save": "Spara",
         "published": "Publicerad"
     }

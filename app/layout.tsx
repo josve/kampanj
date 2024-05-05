@@ -2,6 +2,7 @@ import '../styles/main.scss';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import './globals.css';
 import '@mdxeditor/editor/style.css';
+import { ConfigProvider } from 'antd';
 
 export default function LocaleLayout({
   children,
@@ -39,9 +40,11 @@ export default function LocaleLayout({
 
       <body>
         <AntdRegistry>
-          <center>
-            <div className="main-container">{children}</div>
-          </center>
+          <ConfigProvider locale={locale}>
+            <center>
+              <div className="main-container">{children}</div>
+            </center>
+          </ConfigProvider>
         </AntdRegistry>
       </body>
     </html>

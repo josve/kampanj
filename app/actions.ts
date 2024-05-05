@@ -60,6 +60,9 @@ export async function updateEvent(
   name: string,
   location: string,
   published: boolean,
+  date: Date,
+  startTime: Date,
+  endTime: Date,
 ) {
   const session = await getServerSession(authOptions);
 
@@ -79,6 +82,9 @@ export async function updateEvent(
           name: name,
           location: location,
           published: published,
+          date: date,
+          startTime: startTime,
+          endTime: endTime,
         },
       },
       { returnOriginal: false },
