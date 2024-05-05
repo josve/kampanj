@@ -105,21 +105,25 @@ export default async function Page({ params: { eventId, locale } }: PageProps) {
             </>
           )}
 
-          <SectionHeader
-            imagePath="/images/icon_instruction_white.png"
-            translations={instructions}
-          >
-            {session && (
-              <EditMarkdown
-                content={event.instruction}
-                id={event._id.toString()}
-                action={updateInstruction}
-              ></EditMarkdown>
-            )}
-          </SectionHeader>
-          <SectionContent>
-            <ReactMarkdown>{event.instruction}</ReactMarkdown>
-          </SectionContent>
+          {(session || event.instruction) && (
+            <>
+              <SectionHeader
+                imagePath="/images/icon_instruction_white.png"
+                translations={instructions}
+              >
+                {session && (
+                  <EditMarkdown
+                    content={event.instruction}
+                    id={event._id.toString()}
+                    action={updateInstruction}
+                  ></EditMarkdown>
+                )}
+              </SectionHeader>
+              <SectionContent>
+                <ReactMarkdown>{event.instruction}</ReactMarkdown>
+              </SectionContent>
+            </>
+          )}
         </>
       )}
     </>
