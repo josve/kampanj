@@ -54,6 +54,34 @@ export async function updateInstruction(markdown: string, id: string) {
   }
 }
 
+export async function addEvent(eventName: string, date: Date) {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return;
+  }
+
+  const db = await connectToDatabase();
+  const collection = db.collection('events');
+
+  try {
+    // Insert a new event document
+    const result = await collection.insertOne({
+      name: eventName,
+      location: '',
+      published: false,
+      date: date,
+      facebook: '',
+      participants: [],
+    });
+
+    return;
+  } catch (error) {
+    console.error('Failed to add event', error);
+    return;
+  }
+}
+
 export async function joinEvent(
   id: string,
   name: string,
