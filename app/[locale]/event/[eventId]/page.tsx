@@ -14,6 +14,7 @@ import { getServerSession } from 'next-auth';
 import EditMarkdown from '@/components/EditMarkdown';
 import { updateDescription, updateInstruction } from '@/app/actions';
 import EditSection from '@/components/EditSection';
+import dayjs from 'dayjs';
 
 interface PageProps {
   params: {
@@ -23,14 +24,20 @@ interface PageProps {
 }
 
 export default async function Page({ params: { eventId, locale } }: PageProps) {
+  dayjs.locale(locale);
+
   const db = await connectToDatabase();
   const event = await db
     .collection('events')
     .findOne({ _id: new ObjectId(eventId) });
 
+  const formattedDate = dayjs(event.date).format('YYYY-MM-DD');
+  const formattedStartTime = dayjs(event.startTime, 'HH:mm:ss').format('HH.mm');
+  const formattedEndTime = dayjs(event.endTime, 'HH:mm:ss').format('HH.mm');
+
   const getEventData = {
     title: event.name,
-    subtitle: `${event.location}, ${event.date}`,
+    subtitle: `${event.location}, ${formattedDate}, ${formattedStartTime}-${formattedEndTime}`,
   };
 
   const dictionary = await getDictionary(locale);
