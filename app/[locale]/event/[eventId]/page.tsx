@@ -76,6 +76,35 @@ export default async function Page({ params: { eventId, locale } }: PageProps) {
             <ReactMarkdown>{event.description}</ReactMarkdown>
           </SectionContent>
 
+          {session && (
+            <>
+              <SectionHeader
+                imagePath="/images/icon_event_white.png"
+                translations={dictionary['Registered']}
+              />
+              <SectionContent>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Namn</th>
+                      <th>Email</th>
+                      <th>Telefon</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {event.participants.map((participant, index) => (
+                      <tr key={index}>
+                        <td>{participant.name}</td>
+                        <td>{participant.email}</td>
+                        <td>{participant.phone}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </SectionContent>
+            </>
+          )}
+
           <SectionHeader
             imagePath="/images/icon_instruction_white.png"
             translations={instructions}

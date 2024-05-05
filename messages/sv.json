@@ -23,6 +23,9 @@
         "title": "Tider/Pass",
         "description_text": "Klicka på ett pass för att anmäla eller avanmäla dig. Platser markerade med ! är extra viktigt att de fylls."
     },
+    "Registered": {
+        "title": "Anmälda"
+    },
     "Instructions": {
         "title": "Instruktioner"
     },
