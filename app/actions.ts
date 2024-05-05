@@ -54,6 +54,38 @@ export async function updateInstruction(markdown: string, id: string) {
   }
 }
 
+export async function joinEvent(
+  id: string,
+  name: string,
+  email: string,
+  phone: string,
+) {
+  // find the event by id and add the participant to the participants array, create the array if it doesn't exist
+  const db = await connectToDatabase();
+  const collection = db.collection('events');
+
+  try {
+    const result = await collection.findOneAndUpdate(
+      { _id: new ObjectId(id) },
+      {
+        $push: {
+          participants: {
+            name: name,
+            email: email,
+            phone: phone,
+          },
+        },
+      },
+      { returnOriginal: false },
+    );
+
+    return;
+  } catch (error) {
+    console.error('Failed to join event', error);
+    return;
+  }
+}
+
 // Update name, location and published properties
 export async function updateEvent(
   id: string,
@@ -63,6 +95,7 @@ export async function updateEvent(
   date: Date,
   startTime: Date,
   endTime: Date,
+  facebook: string,
 ) {
   const session = await getServerSession(authOptions);
 
@@ -85,6 +118,7 @@ export async function updateEvent(
           date: date,
           startTime: startTime,
           endTime: endTime,
+          facebook: facebook,
         },
       },
       { returnOriginal: false },

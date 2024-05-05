@@ -15,6 +15,7 @@ import EditMarkdown from '@/components/EditMarkdown';
 import { updateDescription, updateInstruction } from '@/app/actions';
 import EditSection from '@/components/EditSection';
 import dayjs from 'dayjs';
+import EventJoinButton from '@/components/EventJoinButton'; // Adjust the import path as necessary
 
 interface PageProps {
   params: {
@@ -55,6 +56,10 @@ export default async function Page({ params: { eventId, locale } }: PageProps) {
         <>
           <Header translations={getEventData} locale={locale}></Header>
           {session && <EditSection locale={locale} event={event} />}
+          <EventJoinButton
+            eventId={event._id.toString()}
+            facebookLink={event.facebook}
+          />
           <SectionHeader
             imagePath="/images/icon_event_white.png"
             translations={eventDescription}
@@ -70,14 +75,6 @@ export default async function Page({ params: { eventId, locale } }: PageProps) {
           <SectionContent>
             <ReactMarkdown>{event.description}</ReactMarkdown>
           </SectionContent>
-          <Section
-            imagePath="/images/icon_registration_white.png"
-            translations={eventOccations}
-          >
-            <span className="help-text">
-              {eventOccations['description_text']}
-            </span>
-          </Section>
 
           <SectionHeader
             imagePath="/images/icon_instruction_white.png"

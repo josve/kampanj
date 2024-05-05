@@ -34,6 +34,8 @@ const EditDialog: FunctionComponent<Args> = ({
 
   // Create react state for name, location and published, and set the initial values to the event object
   const [name, setName] = useState(event.name || '');
+  const [facebook, setFacebook] = useState(event.facebook || '');
+
   const [location, setLocation] = useState(event.location || '');
   const [published, setPublished] = useState(event.published || false);
   const [date, setDate] = useState(() => dayjs(event.date || new Date()));
@@ -59,7 +61,16 @@ const EditDialog: FunctionComponent<Args> = ({
 
   // Call server function updateEvent which takes the event _id and the new name, location and published values. Call the function when the submit button is clicked.
   const callServerEvent = () => {
-    updateEvent(event._id, name, location, published, date, startTime, endTime);
+    updateEvent(
+      event._id,
+      name,
+      location,
+      published,
+      date,
+      startTime,
+      endTime,
+      facebook,
+    );
     window.location.reload();
   };
 
@@ -117,7 +128,16 @@ const EditDialog: FunctionComponent<Args> = ({
               </Form.Item>
             </Col>
           </Row>
-          <Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item label={translations['facebook']}>
+                <Input
+                  placeholder={translations['facebook']}
+                  value={facebook}
+                  onChange={(e) => setFacebook(e.target.value)}
+                />
+              </Form.Item>
+            </Col>
             <Col span={12}>
               <Form.Item
                 label={translations['published']}

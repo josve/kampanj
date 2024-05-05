@@ -33,6 +33,7 @@
         "date": "Datum",
         "start_time": "Starttid",
         "end_time": "Sluttid",
+        "facebook": "Facebook-evenemang (om det finns)",
         "save": "Spara",
         "published": "Publicerad"
     }
