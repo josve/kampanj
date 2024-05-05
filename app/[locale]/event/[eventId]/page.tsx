@@ -92,7 +92,7 @@ export default async function Page({ params: { eventId, locale } }: PageProps) {
                     </tr>
                   </thead>
                   <tbody>
-                    {event.participants.map((participant, index) => (
+                    {event.participants?.map((participant, index) => (
                       <tr key={index}>
                         <td>{participant.name}</td>
                         <td>{participant.email}</td>
