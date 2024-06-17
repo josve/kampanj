@@ -11,7 +11,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
     "@ant-design/nextjs-registry": "^1.0.0",
-    "@mdxeditor/editor": "^2.20.2",
+    "@mdxeditor/editor": "^3.4.2",
     "@next/env": "^14.2.2",
     "antd": "^5.16.1",
     "dayjs": "^1.11.11",
